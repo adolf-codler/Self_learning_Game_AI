@@ -13,7 +13,7 @@ int main(){
   double Q[19683][9]={};	
 
   //main training loop 
-  for(long long int i = 0; i<10000000; i++){	//epochs
+  for(long long int i = 0; i<100000000; i++){	//epochs
   int board[9] = {0,0,0,0,0,0,0,0,0};	//board where the game is happening
   int move_set[9] = {0,1,2,3,4,5,6,7,8}; //possible moves for the current game
   int won = 0;		// who won 1 for O, 2 for X
@@ -51,6 +51,12 @@ int main(){
       for(int c = 0; c<turns; c++){
 	if(c%2==0) Q[states[c]][moves[c]] += 0.1*(1-(0.1*(1-c)));
 	else Q[states[c]][moves[c]] -= 0.1*(1-(0.1*c));
+      }
+    }
+    else if(won == 0){
+      for(int c = 0; c<turns; c++){
+	if(c%2==0) Q[states[c]][moves[c]] -= 0.01*(1-(0.1*(1-c)));
+	else Q[states[c]][moves[c]] += 0.01*(1-(0.1*c));
       }
     }
     else{	// if O won
