@@ -14,13 +14,18 @@ Millions of game will be simulated on random and for every game every state of t
 Suppose at some point X plays a bad move and O plays a good move but later played a bad move and eventually lose to X that will cause increment in the Q-value of the X's bad move and decrement in the O's good move.
 
 #Installation
-- Clone the repository
+- Clone the repository <br>
+```
+git clone https://github.com/adolf-codler/Self_learning_Game_AI.git
+cd Self_learning_Game_AI
+cd src
+```
 - Cd in the directory 'src'
 - Run the following commands
 ```
-git clone https://github.com/adolf-codler/Self_learning_Game_AI.git
 gcc train.c -o train
 ./train
 gcc play.c -o play
-./play```
+./play
+```
 
