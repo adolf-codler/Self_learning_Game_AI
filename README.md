@@ -23,9 +23,9 @@ cd src
 - Cd in the directory 'src'
 - Run the following commands
 ```
-gcc train.c -o train
+gcc train.c functions.c -o train
+gcc play.c functions.c -o play
 ./train
-gcc play.c -o play
 ./play
 ```
 
