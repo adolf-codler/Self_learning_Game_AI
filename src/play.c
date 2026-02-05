@@ -21,10 +21,10 @@ int main(){
   int turns = 0;	//Total turns played in the game
   long pos;	//Cursor position in the file
 
-  //main game loop
+  //main game loop 
   for(int i = 0; i<9;i++){
     states_played[i] = encode(board);
-    if(i % 2 != 0){
+    if(i % 2 == 0){
       pboard(vboard);
       scanf(" %d",&place);
       if(place >8 || place < 0 || vboard[place] == 'X' || vboard[place] == 'O'){
@@ -58,7 +58,7 @@ int main(){
   else if(won ==1) printf("AI won");
   else printf("It's a draw");
 
-  //updating Q table
+  //updating Q table 
   //for(int i = 0; i < turns; i++){
    // pos = fseek(&Q[][], ,fb); 
   //}

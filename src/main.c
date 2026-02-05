@@ -1,6 +1,5 @@
 #include <ncurses.h>
-#include "train.h"
-#include "play.h"
+#include"../includes/function.h"
 
 char board[3][3] = {
     {' ', ' ', ' '},

@@ -8,16 +8,15 @@
 
 // main function
 int main(){
-  srand(time(NULL));	//seeding randon function with current time
-  //variables
-  double Q[19683][9]={};	
+  srand(time(NULL));	//Seeding randon function with current time
+  double Q[19683][9]={};	//Declaring Q table	
 
   //main training loop 
   for(long long int i = 0; i<100000000; i++){	//epochs
   int board[9] = {0,0,0,0,0,0,0,0,0};	//board where the game is happening
   int move_set[9] = {0,1,2,3,4,5,6,7,8}; //possible moves for the current game
   int won = 0;		// who won 1 for O, 2 for X
-  int states[9] = {};	//the states from where the game has been through
+  int states_played[9] = {};	//the states from where the game has been through
   int moves[9] = {};	//move which have played throghout the game
   int turns = 0;	//how many turns has been played
     for(int j = 0; j<9; j++){	//turnwise play
@@ -30,7 +29,7 @@ int main(){
       move_set[8-j]= move_set[random_move];
       move_set[random_move]= temp;
 
-      states[j]=encode(board);	//storing current positon of the board
+      states_played[j]=encode(board);	//storing current positon of the board
       moves[j]=move;	//the move played in the current position
       if(j%2==0) board[move] = 2;	//playing X
       else board[move] = 1;	//playing O
@@ -49,20 +48,20 @@ int main(){
     //Updating Q values (fast win more q value, slow win less q value, fast loss less q value, slow loss more q value
     if(won == 2){ 	// if X won
       for(int c = 0; c<turns; c++){
-	if(c%2==0) Q[states[c]][moves[c]] += 0.1*(1-(0.1*(1-c)));
-	else Q[states[c]][moves[c]] -= 0.1*(1-(0.1*c));
+	if(c%2==0) Q[states_played[c]][moves[c]] += 0.1*(1-(0.1*(1-c)));
+	else Q[states_played[c]][moves[c]] -= 0.1*(1-(0.1*c));
       }
     }
     else if(won == 0){
       for(int c = 0; c<turns; c++){
-	if(c%2==0) Q[states[c]][moves[c]] -= 0.01*(1-(0.1*(1-c)));
-	else Q[states[c]][moves[c]] += 0.01*(1-(0.1*c));
+	if(c%2==0) Q[states_played[c]][moves[c]] -= 0.01*(1-(0.1*(1-c)));
+	else Q[states_played[c]][moves[c]] += 0.01*(1-(0.1*c));
       }
     }
     else{	// if O won
       for(int c = 0; c<turns; c++){
-	if(c%2==0) Q[states[c]][moves[c]] -= 0.1*(1-(0.1*(1-c)));
-	else Q[states[c]][moves[c]] += 0.1*(1-(0.1*c));
+	if(c%2==0) Q[states_played[c]][moves[c]] -= 0.1*(1-(0.1*(1-c)));
+	else Q[states_played[c]][moves[c]] += 0.1*(1-(0.1*c));
       }
     }
   }
