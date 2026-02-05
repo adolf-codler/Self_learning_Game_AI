@@ -13,7 +13,7 @@ Millions of game will be simulated on random and for every game every state of t
 ### Flaw in randomly simulating games?
 Suppose at some point X plays a bad move and O plays a good move but later played a bad move and eventually lose to X that will cause increment in the Q-value of the X's bad move and decrement in the O's good move.
 
-#Installation
+# Installation
 - Clone the repository <br>
 ```
 git clone https://github.com/adolf-codler/Self_learning_Game_AI.git
