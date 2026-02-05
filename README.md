@@ -15,10 +15,14 @@ Suppose at some point X plays a bad move and O plays a good move but later playe
 
 #Installation
 - Clone the repository
+
+
+
 ```git clone https://github.com/adolf-codler/Self_learning_Game_AI.git```
 - Cd in the directory 'src'
 - Run the following commands
-```gcc train.c -o train
+```
+gcc train.c -o train
 ./train
 gcc play.c -o play
 ./play```
