@@ -25,7 +25,11 @@ cd src
 ```
 gcc train.c functions.c -o train
 gcc play.c functions.c -o play
+```
+```
 ./train
+```
+```
 ./play
 ```
 
